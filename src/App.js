@@ -4,9 +4,9 @@ import { Switch, Route } from "react-router-dom";
 import "bulma/css/bulma.css";
 import "./App.css";
 
-import { Home } from "./components/pages/Home";
-import { Detail } from "./components/pages/Detail";
-import { NotFound } from "./components/pages/NotFound";
+import Home from "./pages/Home";
+import Detail from "./pages/Detail";
+import NotFound from "./pages/NotFound";
 
 class App extends Component {
   render() {

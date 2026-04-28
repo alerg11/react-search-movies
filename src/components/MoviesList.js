@@ -1,30 +1,28 @@
-import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Movie } from "./Movie";
 
-export class MoviesList extends Component {
-  static propTypes = {
-    movies: PropTypes.array,
-  };
+import Movie from "./Movie";
 
-  render() {
-    const { movies } = this.props;
+const MoviesList = ({ movies }) => {
+  return (
+    <div className="movies-list">
+      {movies.map((movie) => {
+        return (
+          <div key={movie.imdbID} className="movie-item">
+            <Movie
+              id={movie.imdbID}
+              poster={movie.Poster}
+              title={movie.Title}
+              year={movie.Year}
+            />
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
-    return (
-      <div className="movies-list">
-        {movies.map((movie) => {
-          return (
-            <div key={movie.imdbID} className="movie-item">
-              <Movie
-                id={movie.imdbID}
-                poster={movie.Poster}
-                title={movie.Title}
-                year={movie.Year}
-              />
-            </div>
-          );
-        })}
-      </div>
-    );
-  }
-}
+MoviesList.propTypes = {
+  movies: PropTypes.array,
+};
+
+export default MoviesList;
